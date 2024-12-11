@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import AdminDashboard from './components/AdminDashboard';
+import AdminPage from './components/AdminPage';
+import Login from './components/Login';
+import Home from './components/Home'; // Assuming you want a home page
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    return (
+        <Router>
+            <div>
+                {/* Button to navigate to login */}
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/admin" element={<AdminDashboard />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/adminpage" element={<AdminPage />} />
+                    
+                </Routes>
+            </div>
+        </Router>
+    );
+};
 
 export default App;
